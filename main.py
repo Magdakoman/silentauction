@@ -24,13 +24,9 @@ while bid_continue:
   else:
     bid_continue = False
 
-bid_values_list = []
-
+highest_bidder = {'bid': '0'}
 for bidder in bidders:
-  bid_values_list.append(int(bidder["bid"]))
+  if (int(bidder["bid"]) > int(highest_bidder["bid"])):
+    highest_bidder = bidder
 
-max_value= max(bid_values_list)
-
-max_index = bid_values_list.index(max_value)
-winner_bid = bidders[max_index]
-print(f"The winning bidder is {winner_bid['name']} with $ {winner_bid['bid']}.")
+print(f"The winning bidder is {highest_bidder['name']} with $ {highest_bidder['bid']}.")
